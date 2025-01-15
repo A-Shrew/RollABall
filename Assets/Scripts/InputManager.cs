@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class InputManager : MonoBehaviour
 {
-    public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
+    public UnityEvent<Vector3> OnMove = new UnityEvent<Vector3>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         Vector3 inputVector = Vector3.zero;
+
         if (Input.GetKey(KeyCode.W))
         {
             inputVector += Vector3.forward;
