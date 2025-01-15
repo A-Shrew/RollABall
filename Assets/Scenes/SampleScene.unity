@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1969680265}
   ballSpeed: 5
-  jumpPower: 1
+  jumpPower: 2
 --- !u!54 &1969680265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092098585}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15ff70ab145219344bb49c313aa86810, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
