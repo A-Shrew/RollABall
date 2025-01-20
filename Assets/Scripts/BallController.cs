@@ -3,13 +3,20 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float ballSpeed = 5f;
-    [SerializeField] private float jumpPower = 2f;
+    [SerializeField] private float ballSpeed = 3f;
+    [SerializeField] private float jumpPower = 10f;
+    [SerializeField] private float linearDrag = 0.05f;
     private float raycastDistance;
 
-    private void Start()
+    void Start()
     {
         raycastDistance = transform.localScale.z / 2f + 0.1f;
+    }
+
+    private void FixedUpdate()
+    {
+        //Custom linear damping on only x and z axis
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x / (1 + linearDrag), rb.linearVelocity.y,rb.linearVelocity.z/ (1 + linearDrag));
     }
     public void MoveBall(Vector3 input)
     {
@@ -20,9 +27,8 @@ public class BallController : MonoBehaviour
 
         if (IsGrounded())
         {   
-            rb.AddForce(jumpVector * jumpPower, ForceMode.Impulse);
+            rb.AddForce(jumpVector * jumpPower);
         }
-
     }
     
     public bool IsGrounded()
@@ -34,7 +40,6 @@ public class BallController : MonoBehaviour
             return true;
         }
         return false;
-
     }
 
 }
