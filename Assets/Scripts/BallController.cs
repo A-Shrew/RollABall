@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour
         raycastDistance = transform.localScale.z / 2f + 0.1f;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         //Custom linear damping on only x and z axis
         rb.linearVelocity = new Vector3(rb.linearVelocity.x / (1 + linearDrag), rb.linearVelocity.y,rb.linearVelocity.z/ (1 + linearDrag));

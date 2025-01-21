@@ -35,7 +35,6 @@ public class InputManager : MonoBehaviour
         {
             inputVector += Vector3.up;
         }
-            
         OnMove?.Invoke(inputVector);
     }
 }
