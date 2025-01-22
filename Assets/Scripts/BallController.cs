@@ -3,9 +3,9 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float ballSpeed = 3f;
-    [SerializeField] private float jumpPower = 10f;
-    [SerializeField] private float linearDrag = 0.05f;
+    [SerializeField] private float ballSpeed = 10f;
+    [SerializeField] private float jumpPower = 2f;
+    [SerializeField] private float linearDrag = 0.01f;
     private float raycastDistance;
 
     void Start()
@@ -27,7 +27,7 @@ public class BallController : MonoBehaviour
 
         if (IsGrounded())
         {   
-            rb.AddForce(jumpVector * jumpPower);
+            rb.AddForce(jumpVector * jumpPower, ForceMode.Impulse);
         }
     }
     
